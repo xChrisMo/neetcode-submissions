@@ -1,0 +1,18 @@
+class Solution:
+    def maxAscendingSum(self, nums: List[int]) -> int:
+        #[10, 30, 60, 65, 75, 125]
+
+        max_sum = nums[0]
+        cur_sum = nums[0]
+        
+        
+        for i in range(1, len(nums)):
+            if nums[i] > nums[i - 1]:
+                cur_sum += nums[i]
+                max_sum = max(max_sum, cur_sum)
+            else:
+                cur_sum = nums[i]
+            
+            max_sum = max(max_sum, cur_sum)
+
+        return max_sum
